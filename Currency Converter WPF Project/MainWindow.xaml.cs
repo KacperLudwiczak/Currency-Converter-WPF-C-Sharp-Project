@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,11 @@ namespace Currency_Converter_WPF_Project
         public MainWindow()
         {
             InitializeComponent();
+
+            //ClearControls method is used to clear all control values
+            ClearControls();
+
+            //BindCurrency is used to bind currency name with the value in the Combobox
             BindCurrency();
         }
         private void BindCurrency()
@@ -78,7 +84,7 @@ namespace Currency_Converter_WPF_Project
         private void Convert_Click(object sender, RoutedEventArgs e)
         {
             //Create a variable as ConvertedValue with double data type to store currency converted value
-            double ConvertedValue;
+            // double ConvertedValue;
 
             //Check amount textbox is Null or Blank
             if (txtCurrency.Text == null || txtCurrency.Text.Trim() == "")
@@ -110,6 +116,27 @@ namespace Currency_Converter_WPF_Project
                 cmbToCurrency.Focus();
                 return;
             }
+        }
+        //private void NumberValidationTextBox(object sender, TextCompositionEventArgs e) //Allow Only Integer in Text Box
+        //{
+        //    //Regular Expression is used to add regex.
+        //    // Add Library using System.Text.RegularExpressions;
+        //    Regex regex = new Regex("^[0-9]+");
+        //    e.Handled = regex.IsMatch(e.Text);
+        //}
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        // Allow only numbers and a single decimal point
+        private static bool IsTextAllowed(string text)
+        {
+            return text.All(c => char.IsDigit(c) || c == '.');
+        }
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearControls();
         }
     }
 }
