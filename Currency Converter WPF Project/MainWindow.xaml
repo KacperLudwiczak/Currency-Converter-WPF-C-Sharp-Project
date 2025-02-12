@@ -21,14 +21,12 @@
 					<GradientStop Color="#7cfc00" Offset="0.50" />
 				</LinearGradientBrush>
 			</Border.BorderBrush>
-			<Rectangle Grid.Row="2">
-				<Rectangle.Fill>
-					<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-						<GradientStop Color="#0bda51" Offset="0.0" />
-						<GradientStop Color="#7cfc00" Offset="0.50" />
-					</LinearGradientBrush>
-				</Rectangle.Fill>
-			</Rectangle>
+			<Border.Background>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+					<GradientStop Color="#0bda51" Offset="0.0" />
+					<GradientStop Color="#7cfc00" Offset="0.50" />
+				</LinearGradientBrush>
+			</Border.Background>
 		</Border>
 		<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Height="50" Width="1000" VerticalAlignment="Center">
 			<Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Converter" FontSize="25" Foreground="#0bda51" FontWeight="Bold"></Label>
@@ -48,7 +46,7 @@
 			<ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
 		</StackPanel>
 		<StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal">
-			<Button Name="Convert" Height="40" Width="150" Content="Convert" Margin="350 0 20 0" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+			<Button Name="Convert" Click="Convert_Click" Height="40" Width="150" Content="Convert" Margin="350 0 20 0" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
 				<Button.Background>
 					<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
 						<GradientStop Color="#0bda51" Offset="0.0"/>
@@ -56,7 +54,7 @@
 					</LinearGradientBrush>
 				</Button.Background>
 			</Button>
-			<Button Name="Clear" Height="40" Width="150" Content="Clear" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+			<Button Name="Clear" Click="Clear_Click" Height="40" Width="150" Content="Clear" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
 				<Button.Background>
 					<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
 						<GradientStop Color="#0bda51" Offset="0.0"/>
