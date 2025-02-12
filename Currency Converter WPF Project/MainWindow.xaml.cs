@@ -23,6 +23,7 @@ namespace Currency_Converter_WPF_Project
         public MainWindow()
         {
             InitializeComponent();
+            Console.WriteLine("Test commit");
         }
     }
 }
