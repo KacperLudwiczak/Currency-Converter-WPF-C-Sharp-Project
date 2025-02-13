@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Currency_Converter_WPF_Project"
         mc:Ignorable="d"
         Title="Currency Converter" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
-    <Grid>
+	<TabControl Name="tbMain" TabStripPlacement="Top">
+		<TabItem Name="tbConverter" Header="Currency Converter">    
+	      <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="60"></RowDefinition>
 			<RowDefinition Height="80"></RowDefinition>
@@ -67,4 +69,10 @@
 			
 		</StackPanel>
     </Grid>
+		</TabItem>
+		<TabItem Name="tbMaster" Header="Currency Master">
+			<Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="New Tab" FontSize="25" Foreground="#0bda51" FontWeight="Bold"/>
+		</TabItem>
+	</TabControl>
+
 </Window>
